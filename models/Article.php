@@ -138,4 +138,13 @@
     {
         return $this->views;
     }
+
+    public function incrementViews(): int
+    {
+        if ($this->views === null) {
+            $this->views = 0;
+        }
+
+        return ++$this->views;
+    }
  }
