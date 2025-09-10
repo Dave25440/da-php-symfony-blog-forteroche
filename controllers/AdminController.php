@@ -40,6 +40,7 @@ class AdminController {
 
         $sort = $_GET['sort'] ?? 'id';
         $order = $_GET['order'] ?? 'asc';
+        $articles = $this->sortArticles($articles);
 
         $view = new View("Statistiques");
         $view->render("monitoring", [
@@ -198,5 +199,14 @@ class AdminController {
        
         // On redirige vers la page d'administration.
         Utils::redirect("admin");
+    }
+
+    private function sortArticles(array $articles) : array
+    {
+        usort($articles, function ($a, $b) {
+            return strcmp($a->getTitle(), $b->getTitle());
+        });
+
+        return $articles;
     }
 }
