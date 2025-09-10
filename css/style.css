@@ -313,7 +313,8 @@ a.info {
     color: white;
 }
 
-.articleLine {
+.articleLine,
+.adminMenu {
     display: flex; 
 }
 
@@ -335,6 +336,10 @@ a.info {
 .articleLine > div {
     padding: 20px;
     border: 1px solid var(--backgroundColor);
+}
+
+.adminMenu > a {
+    margin: 20px;
 }
 
 /** 
