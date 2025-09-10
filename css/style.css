@@ -322,6 +322,10 @@ a.info {
     background-color: var(--commentColor);
 }
 
+.articleLine.alternate {
+    background-color: var(--headerColor);
+}
+
 .articleLine div {
     display: flex;
     align-items: center;

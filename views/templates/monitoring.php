@@ -7,8 +7,10 @@
         <div class="counter">Commentaires</div>
         <div class="date">Date de publication</div>
     </div>
-    <?php foreach ($articles as $article) { ?>
-        <div class="articleLine">
+    <?php foreach ($articles as $index => $article) {
+        $class = ($index % 2 === 1) ? 'alternate' : '';
+    ?>
+        <div class="articleLine <?= $class ?>">
             <div class="flexTitle"><?= $article->getTitle() ?></div>
             <div class="counter number"><?= $article->getViews() ?></div>
             <div class="counter number"><?= $commentCounts[$article->getId()] ?? 0 ?></div>
