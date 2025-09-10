@@ -38,6 +38,9 @@ class AdminController {
             $commentCounts[$article->getId()] = $commentManager->countCommentsByArticleId($article->getId());
         }
 
+        $sort = $_GET['sort'] ?? 'id';
+        $order = $_GET['order'] ?? 'asc';
+
         $view = new View("Statistiques");
         $view->render("monitoring", [
             'articles' => $articles,
