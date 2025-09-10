@@ -32,9 +32,16 @@ class AdminController {
         $articleManager = new ArticleManager();
         $articles = $articleManager->getAllArticles();
 
+        $commentManager = new CommentManager();
+        $commentCounts = [];
+        foreach ($articles as $article) {
+            $commentCounts[$article->getId()] = $commentManager->countCommentsByArticleId($article->getId());
+        }
+
         $view = new View("Statistiques");
         $view->render("monitoring", [
-            'articles' => $articles
+            'articles' => $articles,
+            'commentCounts' => $commentCounts
         ]);
     }
 

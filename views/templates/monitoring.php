@@ -11,7 +11,7 @@
         <div class="articleLine">
             <div class="flexTitle"><?= $article->getTitle() ?></div>
             <div class="counter number"><?= $article->getViews() ?></div>
-            <div class="counter number">0</div>
+            <div class="counter number"><?= $commentCounts[$article->getId()] ?? 0 ?></div>
             <div class="date"><?= ucfirst(Utils::convertDateToFrenchFormat($article->getDateCreation())) ?></div>
         </div>
     <?php } ?>
