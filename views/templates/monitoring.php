@@ -1,18 +1,18 @@
 <h2>Statistiques des articles</h2>
 
 <div class="adminArticle">
-    <div class="articleLine">
-        <div>Titre</div>
-        <div>Vues</div>
-        <div>Commentaires</div>
-        <div>Date de publication</div>
+    <div class="articleLine header">
+        <div class="flexTitle">Titre</div>
+        <div class="counter">Vues</div>
+        <div class="counter">Commentaires</div>
+        <div class="date">Date de publication</div>
     </div>
     <?php foreach ($articles as $article) { ?>
         <div class="articleLine">
-            <div><?= $article->getTitle() ?></div>
-            <div><?= $article->getViews() ?></div>
-            <div>0</div>
-            <div><?= ucfirst(Utils::convertDateToFrenchFormat($article->getDateCreation())) ?></div>
+            <div class="flexTitle"><?= $article->getTitle() ?></div>
+            <div class="counter number"><?= $article->getViews() ?></div>
+            <div class="counter number">0</div>
+            <div class="date"><?= ucfirst(Utils::convertDateToFrenchFormat($article->getDateCreation())) ?></div>
         </div>
     <?php } ?>
 </div>

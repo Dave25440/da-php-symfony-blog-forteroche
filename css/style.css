@@ -318,9 +318,18 @@ a.info {
     display: flex; 
 }
 
+.articleLine.header {
+    background-color: var(--commentColor);
+}
+
 .articleLine div {
     display: flex;
     align-items: center;
+}
+
+.articleLine.header div {
+    justify-content: center;
+    font-weight: bold;
 }
 
 .articleLine .title {
@@ -329,8 +338,23 @@ a.info {
     width: 200px;
 }
 
-.articleLine .content {
+.articleLine .content,
+.articleLine .flexTitle {
     flex-grow: 1;
+}
+
+.articleLine .counter {
+    min-width: 175px;
+    width: 175px;
+}
+
+.articleLine .number {
+    justify-content: flex-end;
+}
+
+.articleLine .date {
+    min-width: 275px;
+    width: 275px;
 }
 
 .articleLine > div {
