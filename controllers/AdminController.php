@@ -40,12 +40,14 @@ class AdminController {
 
         $sort = $_GET['sort'] ?? 'id';
         $order = $_GET['order'] ?? 'asc';
-        $articles = $this->sortArticles($articles);
+        $articles = $this->sortArticles($articles, $sort, $order);
 
         $view = new View("Statistiques");
         $view->render("monitoring", [
             'articles' => $articles,
-            'commentCounts' => $commentCounts
+            'commentCounts' => $commentCounts,
+            'sort' => $sort,
+            'order' => $order
         ]);
     }
 
@@ -201,11 +203,14 @@ class AdminController {
         Utils::redirect("admin");
     }
 
-    private function sortArticles(array $articles) : array
+    private function sortArticles(array $articles, string $sort, string $order) : array
     {
-        usort($articles, function ($a, $b) {
-            return strcmp($a->getTitle(), $b->getTitle());
-        });
+        if ($sort === 'title') {
+            usort($articles, function ($a, $b) use ($order) {
+                $result = strcmp($a->getTitle(), $b->getTitle());
+                return $order === 'asc' ? $result : -$result;
+            });
+        }
 
         return $articles;
     }

@@ -2,7 +2,11 @@
 
 <div class="adminArticle">
     <div class="articleLine header">
-        <div class="flexTitle"><a href="?action=showMonitoring&sort=title&order=asc">Titre</a></div>
+        <div class="flexTitle">
+            <a href="?action=showMonitoring&sort=title&order=<?= ($sort === 'title' && $order === 'asc') ? 'desc' : 'asc' ?>">
+                Titre
+            </a>
+        </div>
         <div class="counter"><a href="?action=showMonitoring&sort=views&order=asc">Vues</a></div>
         <div class="counter"><a href="?action=showMonitoring&sort=comments&order=asc">Commentaires</a></div>
         <div class="date"><a href="?action=showMonitoring&sort=date&order=asc">Date de publication</a></div>
