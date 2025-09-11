@@ -7,7 +7,11 @@
                 Titre <?= $sort === 'title' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
             </a>
         </div>
-        <div class="counter"><a href="?action=showMonitoring&sort=views&order=asc">Vues</a></div>
+        <div class="counter">
+            <a href="?action=showMonitoring&sort=views&order=<?= ($sort === 'views' && $order === 'asc') ? 'desc' : 'asc' ?>">
+                Vues <?= $sort === 'views' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
+            </a>
+        </div>
         <div class="counter"><a href="?action=showMonitoring&sort=comments&order=asc">Commentaires</a></div>
         <div class="date"><a href="?action=showMonitoring&sort=date&order=asc">Date de publication</a></div>
     </div>

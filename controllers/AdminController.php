@@ -223,6 +223,9 @@ class AdminController {
                 case 'title':
                     $result = strcmp($a->getTitle(), $b->getTitle());
                     break;
+                case 'views':
+                    $result = $a->getViews() - $b->getViews();
+                    break;
             }
 
             return $order === 'asc' ? $result : -$result;
