@@ -283,6 +283,12 @@ a.info {
     margin: 5px 0 5px 0;
 }
 
+.detailComment .submit {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: var(--dateColor);
+}
+
 /* Page d'erreur */
 
 .error {
