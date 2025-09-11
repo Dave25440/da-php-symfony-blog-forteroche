@@ -37,8 +37,14 @@ class ArticleController
         $commentManager = new CommentManager();
         $comments = $commentManager->getAllCommentsByArticleId($id);
 
+        $isConnected = isset($_SESSION['user']);
+
         $view = new View($article->getTitle());
-        $view->render("detailArticle", ['article' => $article, 'comments' => $comments]);
+        $view->render("detailArticle", [
+            'article' => $article,
+            'comments' => $comments,
+            'isConnected' => $isConnected
+        ]);
     }
 
     /**
