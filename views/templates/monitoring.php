@@ -4,22 +4,22 @@
     <div class="articleLine header">
         <div class="flexTitle">
             <a href="?action=showMonitoring&sort=title&order=<?= ($sort === 'title' && $order === 'asc') ? 'desc' : 'asc' ?>">
-                Titre <?= $sort === 'title' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
+                Titre <?= Utils::renderSortArrow('title', $sort, $order) ?>
             </a>
         </div>
         <div class="counter">
             <a href="?action=showMonitoring&sort=views&order=<?= ($sort === 'views' && $order === 'asc') ? 'desc' : 'asc' ?>">
-                Vues <?= $sort === 'views' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
+                Vues <?= Utils::renderSortArrow('views', $sort, $order) ?>
             </a>
         </div>
         <div class="counter">
             <a href="?action=showMonitoring&sort=comments&order=<?= ($sort === 'comments' && $order === 'asc') ? 'desc' : 'asc' ?>">
-                Commentaires <?= $sort === 'comments' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
+                Commentaires <?= Utils::renderSortArrow('comments', $sort, $order) ?>
             </a>
         </div>
         <div class="date">
             <a href="?action=showMonitoring&sort=date&order=<?= ($sort === 'date' && $order === 'asc') ? 'desc' : 'asc' ?>">
-                Date de publication <?= $sort === 'date' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
+                Date de publication <?= Utils::renderSortArrow('date', $sort, $order) ?>
             </a>
         </div>
     </div>

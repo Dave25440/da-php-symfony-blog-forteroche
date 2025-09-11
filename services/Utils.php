@@ -87,4 +87,19 @@ class Utils {
         return $_REQUEST[$variableName] ?? $defaultValue;
     }
 
+    public static function renderSortArrow(string $column, string $currentSort, string $currentOrder): string
+    {
+        if ($column !== $currentSort) {
+            return '⇅';
+        }
+
+        switch ($currentOrder) {
+            case 'asc':
+                return '▴';
+            case 'desc':
+                return '▾';
+            default:
+                return '⇅';
+        }
+    }
 }
