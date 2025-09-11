@@ -4,7 +4,7 @@
     <div class="articleLine header">
         <div class="flexTitle">
             <a href="?action=showMonitoring&sort=title&order=<?= ($sort === 'title' && $order === 'asc') ? 'desc' : 'asc' ?>">
-                Titre <?= ($sort === 'title') ? (($order === 'asc') ? '▴' : '▾') : '⇅' ?>
+                Titre <?= $sort === 'title' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
             </a>
         </div>
         <div class="counter"><a href="?action=showMonitoring&sort=views&order=asc">Vues</a></div>

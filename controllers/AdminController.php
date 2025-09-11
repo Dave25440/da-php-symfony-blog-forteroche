@@ -40,6 +40,16 @@ class AdminController {
 
         $sort = $_GET['sort'] ?? 'id';
         $order = $_GET['order'] ?? 'asc';
+        $allowedSorts = ['id', 'title', 'views', 'comments', 'date'];
+        $allowedOrders = ['asc', 'desc'];
+
+        if (!in_array($sort, $allowedSorts)) {
+            $sort = 'id';
+        }
+        if (!in_array($order, $allowedOrders)) {
+            $order = 'asc';
+        }
+
         $articles = $this->sortArticles($articles, $sort, $order);
 
         $view = new View("Statistiques");
@@ -205,12 +215,18 @@ class AdminController {
 
     private function sortArticles(array $articles, string $sort, string $order) : array
     {
-        if ($sort === 'title') {
-            usort($articles, function ($a, $b) use ($order) {
-                $result = strcmp($a->getTitle(), $b->getTitle());
-                return $order === 'asc' ? $result : -$result;
-            });
-        }
+        usort($articles, function ($a, $b) use ($sort, $order) {
+            switch ($sort) {
+                case 'id':
+                    $result = $a->getId() - $b->getId();
+                    break;
+                case 'title':
+                    $result = strcmp($a->getTitle(), $b->getTitle());
+                    break;
+            }
+
+            return $order === 'asc' ? $result : -$result;
+        });
 
         return $articles;
     }
