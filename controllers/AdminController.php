@@ -242,4 +242,17 @@ class AdminController {
 
         return $articles;
     }
+
+    public function deleteComment() : void
+    {
+        $this->checkIfUserIsConnected();
+
+        $id = Utils::request("id", -1);
+
+        $commentManager = new CommentManager();
+        $comment = $commentManager->getCommentById($id);
+        $commentManager->deleteComment($comment);
+
+        Utils::redirect("home");
+    }
 }
