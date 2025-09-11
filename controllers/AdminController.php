@@ -229,6 +229,9 @@ class AdminController {
                 case 'comments':
                     $result = $commentCounts[$a->getId()] - $commentCounts[$b->getId()];
                     break;
+                case 'date':
+                    $result = $a->getDateCreation()->getTimestamp() - $b->getDateCreation()->getTimestamp();
+                    break;
             }
 
             return $order === 'asc' ? $result : -$result;

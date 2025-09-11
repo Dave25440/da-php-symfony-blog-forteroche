@@ -17,7 +17,11 @@
                 Commentaires <?= $sort === 'comments' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
             </a>
         </div>
-        <div class="date"><a href="?action=showMonitoring&sort=date&order=asc">Date de publication</a></div>
+        <div class="date">
+            <a href="?action=showMonitoring&sort=date&order=<?= ($sort === 'date' && $order === 'asc') ? 'desc' : 'asc' ?>">
+                Date de publication <?= $sort === 'date' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
+            </a>
+        </div>
     </div>
     <?php foreach ($articles as $index => $article) {
         $class = ($index % 2 === 1) ? 'alternate' : '';
