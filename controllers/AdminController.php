@@ -227,10 +227,13 @@ class AdminController {
                     $result = $a->getViews() - $b->getViews();
                     break;
                 case 'comments':
-                    $result = $commentCounts[$a->getId()] - $commentCounts[$b->getId()];
+                    $result = ($commentCounts[$a->getId()] ?? 0) - ($commentCounts[$b->getId()] ?? 0);
                     break;
                 case 'date':
                     $result = $a->getDateCreation()->getTimestamp() - $b->getDateCreation()->getTimestamp();
+                    break;
+                default:
+                    $result = $a->getId() - $b->getId();
                     break;
             }
 
