@@ -253,6 +253,6 @@ class AdminController {
         $comment = $commentManager->getCommentById($id);
         $commentManager->deleteComment($comment);
 
-        Utils::redirect("home");
+        Utils::redirect("showArticle&id=" . $comment->getIdArticle());
     }
 }
