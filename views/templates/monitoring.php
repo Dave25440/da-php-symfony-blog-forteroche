@@ -12,7 +12,11 @@
                 Vues <?= $sort === 'views' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
             </a>
         </div>
-        <div class="counter"><a href="?action=showMonitoring&sort=comments&order=asc">Commentaires</a></div>
+        <div class="counter">
+            <a href="?action=showMonitoring&sort=comments&order=<?= ($sort === 'comments' && $order === 'asc') ? 'desc' : 'asc' ?>">
+                Commentaires <?= $sort === 'comments' ? ($order === 'asc' ? '▴' : ($order === 'desc' ? '▾' : '⇅')) : '⇅' ?>
+            </a>
+        </div>
         <div class="date"><a href="?action=showMonitoring&sort=date&order=asc">Date de publication</a></div>
     </div>
     <?php foreach ($articles as $index => $article) {

@@ -50,7 +50,7 @@ class AdminController {
             $order = 'asc';
         }
 
-        $articles = $this->sortArticles($articles, $sort, $order);
+        $articles = $this->sortArticles($articles, $commentCounts, $sort, $order);
 
         $view = new View("Statistiques");
         $view->render("monitoring", [
@@ -213,9 +213,9 @@ class AdminController {
         Utils::redirect("admin");
     }
 
-    private function sortArticles(array $articles, string $sort, string $order) : array
+    private function sortArticles(array $articles, array $commentCounts, string $sort, string $order) : array
     {
-        usort($articles, function ($a, $b) use ($sort, $order) {
+        usort($articles, function ($a, $b) use ($commentCounts, $sort, $order) {
             switch ($sort) {
                 case 'id':
                     $result = $a->getId() - $b->getId();
@@ -225,6 +225,9 @@ class AdminController {
                     break;
                 case 'views':
                     $result = $a->getViews() - $b->getViews();
+                    break;
+                case 'comments':
+                    $result = $commentCounts[$a->getId()] - $commentCounts[$b->getId()];
                     break;
             }
 
