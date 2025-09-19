@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `content` text NOT NULL,
   `date_creation` datetime NOT NULL,
   `date_update` datetime DEFAULT NULL,
+  `views` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `link_article_user` (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
